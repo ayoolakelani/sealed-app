@@ -1,0 +1,80 @@
+<form #personalForm="ngForm" class="editForm" novalidate>
+    <div class="">
+    </div>
+    <div class="main-content">
+        <div class="row">
+            <div class="col-md-12">
+              
+                    
+                        <h4 class="head text-center">{{title}}</h4>
+                 
+                   
+                        <div class='row d-flex justify-content-center'> 
+                            <div class='col-xs-offset-1 col-xs-10 col-sm-offset-2 col-sm-8'>
+                                <div class="row">
+                                    <div class='col-xs-12 col-sm-6'>
+                                        <div class="form-group">
+                                            <label class="control-label" for="firstname">First Name</label>
+                                            <input class="form-control input-md" #firstname="ngModel" required
+                                                id="firstname" name="firstname" type="text" placeholder="First Name"
+                                                [(ngModel)]="personal.firstName">
+                                            <div class="alert alert-danger" [hidden]="firstname.valid || (!firstname.dirty && !firstname.touched)">First Name is
+                                                required</div>
+                                        </div>
+                                    </div>
+                                    <div class='col-xs-12 col-sm-6'>
+                                        <div class="form-group">
+                                            <label class="control-label" for="lastname">Last Name</label>
+                                            <input class="form-control input-md" #lastname="ngModel" required
+                                                id="lastname" name="lastname" type="text" placeholder="Last Name"
+                                                [(ngModel)]="personal.lastName">
+                                            <div class="alert alert-danger" [hidden]="lastname.valid || (!lastname.dirty && !lastname.touched)">Last Name is
+                                                required</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                        <div class='col-xs-12 col-sm-6'>
+                                            <div class="form-group">
+                                                <label class="control-label" for="gender">Sex</label>
+                                                <select class="form-control input-md" #gender="ngModel" required  id="gender" name="gender" [(ngModel)]="personal.gender">
+                                                    <option [value]="undefined">-- Please Select --</option>
+                                                    <option [value]="type" *ngFor="let type of genders">{{type}}</option>
+                                                    </select>
+                                                <div class="alert alert-danger" [hidden]="gender.valid || (!gender.dirty && !gender.touched)">Gender is
+                                                    required
+                                                </div>
+                                        </div>
+                                        <div class='col-xs-12 col-sm-6'>
+                                                <div class="form-group">
+
+                                                        <label class="control-label" for="Marital_Status">Marital Status</label>
+                                                        <select class="form-control input-md" #Marital_Status="ngModel" required  id="Marital_Status" name="Marital_Status" [(ngModel)]="personal.Marital_Status">
+                                                            <option [value]="undefined">-- Please Select --</option>
+                                                            <option [value]="type" *ngFor="let type of maritalstatuses">{{type}}</option>
+                                                            </select>
+                                                        <div class="alert alert-danger" [hidden]="Marital_Status.valid || (!Marital_Status.dirty && !Marital_Status.touched)">Gender is
+                                                            required
+                                                        </div>
+                                                    </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                
+
+                                <div class="form-group text-center">
+                                    <button class="btn btn-primary btn-outline-rounded"
+                                        [disabled]="!personalForm.valid" (click)="goToNext(personalForm)"> Next <span
+                                            style="margin-left:10px;"
+                                            class="now-ui-icons arrows-1_minimal-right"></span></button>
+                                </div>
+                            </div>
+                        </div>
+                   
+              
+            </div>
+        </div>
+    </div>
+</form>
